@@ -14,7 +14,7 @@ XMPP client for developers.
 5. Enter any stanza in textarea then click `Send` button to send the stanza to XMPP server.
 
 ## Libraries
-Libraries are served by [BoostrapCDN](https://www.bootstrapcdn.com/), [jQuery](http://code.jquery.com/), and [jsDelivr](https://www.jsdelivr.com/).
+Libraries are served by [BoostrapCDN](https://www.bootstrapcdn.com/), [jQuery](https://code.jquery.com/), and [jsDelivr](https://www.jsdelivr.com/).
 - [Bootstrap](https://getbootstrap.com)
 - [jQuery](https://jquery.com)
 - [Prism](https://prismjs.com)
