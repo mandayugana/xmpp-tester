@@ -70,6 +70,8 @@ function connected()
     $('button#xmpp-connection').text('Disconnect');
     $('button#send-presence').prop('disabled', false);
     $('button#send-xml').prop('disabled', false);
+    // collapse connection form
+    $('#xmpp-connection-form').collapse('hide');
 }
 
 function disconnected()
@@ -77,6 +79,8 @@ function disconnected()
     $('button#xmpp-connection').text('Connect');
     $('button#send-presence').prop('disabled', true);
     $('button#send-xml').prop('disabled', true);
+    // expand connection form
+    $('#xmpp-connection-form').collapse('show');
 }
 
 function onConnect(status)
