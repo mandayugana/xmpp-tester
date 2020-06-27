@@ -68,7 +68,7 @@ function logOutput(data)
 function connected()
 {
     $('button#xmpp-connection').text('Disconnect');
-    $('button#send-presence').prop('disabled', false);
+    $('#xml-send-form button').prop('disabled', false);
     $('button#send-xml').prop('disabled', false);
     // collapse connection form
     $('#xmpp-connection-form').collapse('hide');
@@ -77,7 +77,7 @@ function connected()
 function disconnected()
 {
     $('button#xmpp-connection').text('Connect');
-    $('button#send-presence').prop('disabled', true);
+    $('#xml-send-form button').prop('disabled', true);
     $('button#send-xml').prop('disabled', true);
     // expand connection form
     $('#xmpp-connection-form').collapse('show');
@@ -138,5 +138,32 @@ $(document).ready(function () {
         var parser = new DOMParser();
         var el = parser.parseFromString($('textarea#xml').val(), "text/xml").documentElement;
         connection.send(el);
+    });
+
+    $('#message-template').click(function(e)
+    {
+        e.preventDefault();
+        var template = '<message to="RECIPIENT_USERNAME@' + connection.domain + '" type="chat" id="' + connection.getUniqueId() + '">\n'
+            + '  <body></body>\n'
+            + '</message>';
+        $('textarea#xml').text(template);
+    });
+
+    $('#presence-template').click(function(e)
+    {
+        e.preventDefault();
+        var template = '<presence to="RECIPIENT_USERNAME@' + connection.domain + '">\n'
+            + '  <show></show>\n'
+            + '</presence>';
+        $('textarea#xml').text(template);
+    });
+
+    $('#iq-template').click(function(e)
+    {
+        e.preventDefault();
+        var template = '<iq type="set" id="' + connection.getUniqueId() + '">\n'
+            + '  <query xmlns="QUERY_NAMESPACE"/>\n'
+            + '</iq>';
+        $('textarea#xml').text(template);
     });
 });
