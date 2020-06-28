@@ -146,7 +146,7 @@ $(document).ready(function () {
         var template = '<message to="RECIPIENT_USERNAME@' + connection.domain + '" type="chat" id="' + connection.getUniqueId() + '">\n'
             + '  <body></body>\n'
             + '</message>';
-        $('textarea#xml').text(template);
+        $('textarea#xml').val(template);
     });
 
     $('#presence-template').click(function(e)
@@ -155,7 +155,7 @@ $(document).ready(function () {
         var template = '<presence to="RECIPIENT_USERNAME@' + connection.domain + '">\n'
             + '  <show></show>\n'
             + '</presence>';
-        $('textarea#xml').text(template);
+        $('textarea#xml').val(template);
     });
 
     $('#iq-template').click(function(e)
@@ -164,6 +164,6 @@ $(document).ready(function () {
         var template = '<iq type="set" id="' + connection.getUniqueId() + '">\n'
             + '  <query xmlns="QUERY_NAMESPACE"/>\n'
             + '</iq>';
-        $('textarea#xml').text(template);
+        $('textarea#xml').val(template);
     });
 });
