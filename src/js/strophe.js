@@ -166,4 +166,13 @@ $(document).ready(function () {
             + '</iq>';
         $('textarea#xml').val(template);
     });
+
+    $('#iq-mam').click(function(e)
+    {
+        e.preventDefault();
+        var template = '<iq type="set" id="' + connection.getUniqueId() + '">\n'
+            + '  <query xmlns="urn:xmpp:mam:2" queryid="REQUEST_QUERY_ID"/>\n'
+            + '</iq>';
+        $('textarea#xml').val(template);
+    });
 });
